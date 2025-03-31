@@ -1,0 +1,630 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Happy Birthday Anjali!</title>
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&family=Montserrat:wght@400;600&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Montserrat', sans-serif;
+            background: linear-gradient(135deg, #ff9a9e 0%, #fad0c4 100%);
+            color: #333;
+            overflow-x: hidden;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        header {
+            text-align: center;
+            padding: 40px 0;
+            position: relative;
+        }
+
+        h1 {
+            font-family: 'Dancing Script', cursive;
+            font-size: 4rem;
+            color: #d23669;
+            margin-bottom: 20px;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+            animation: fadeIn 2s ease-in-out;
+        }
+
+        .heart {
+            position: absolute;
+            width: 30px;
+            height: 30px;
+            background-color: #ff6b81;
+            transform: rotate(45deg);
+            animation: float 4s ease-in-out infinite;
+            opacity: 0.7;
+        }
+
+        .heart:before, .heart:after {
+            content: '';
+            width: 30px;
+            height: 30px;
+            background-color: #ff6b81;
+            border-radius: 50%;
+            position: absolute;
+        }
+
+        .heart:before {
+            top: -15px;
+            left: 0;
+        }
+
+        .heart:after {
+            top: 0;
+            left: -15px;
+        }
+
+        @keyframes float {
+            0%, 100% {
+                transform: rotate(45deg) translateY(0);
+            }
+            50% {
+                transform: rotate(45deg) translateY(-20px);
+            }
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(-20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .hero {
+            text-align: center;
+            padding: 40px 0;
+        }
+
+        .hero img {
+            width: 200px;
+            height: 200px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 5px solid white;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+            transition: transform 0.3s;
+        }
+
+        .hero img:hover {
+            transform: scale(1.05);
+        }
+
+        .hero h2 {
+            font-family: 'Dancing Script', cursive;
+            font-size: 2.5rem;
+            margin: 20px 0;
+            color: #d23669;
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            max-width: 700px;
+            margin: 0 auto 30px;
+            line-height: 1.6;
+        }
+
+        .btn {
+            display: inline-block;
+            background-color: #d23669;
+            color: white;
+            padding: 12px 30px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s;
+            box-shadow: 0 4px 10px rgba(210, 54, 105, 0.3);
+        }
+
+        .btn:hover {
+            background-color: #ff6b81;
+            transform: translateY(-3px);
+            box-shadow: 0 6px 15px rgba(210, 54, 105, 0.4);
+        }
+
+        .gallery {
+            padding: 60px 0;
+            text-align: center;
+        }
+
+        .gallery h2 {
+            font-family: 'Dancing Script', cursive;
+            font-size: 3rem;
+            margin-bottom: 40px;
+            color: #d23669;
+        }
+
+        .photo-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 20px;
+            padding: 20px;
+        }
+
+        .photo-item {
+            position: relative;
+            overflow: hidden;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s;
+            aspect-ratio: 1/1;
+        }
+
+        .photo-item:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
+        }
+
+        .photo-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s;
+        }
+
+        .photo-item:hover img {
+            transform: scale(1.1);
+        }
+
+        .love-notes {
+            padding: 60px 0;
+            background-color: rgba(255, 255, 255, 0.3);
+            border-radius: 20px;
+            margin: 40px 0;
+        }
+
+        .love-notes h2 {
+            font-family: 'Dancing Script', cursive;
+            font-size: 3rem;
+            text-align: center;
+            margin-bottom: 40px;
+            color: #d23669;
+        }
+
+        .notes-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 20px;
+        }
+
+        .note {
+            background-color: white;
+            padding: 20px;
+            border-radius: 10px;
+            width: 300px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            position: relative;
+            transform: rotate(-2deg);
+            transition: all 0.3s;
+        }
+
+        .note:nth-child(even) {
+            transform: rotate(2deg);
+            background-color: #fff9e6;
+        }
+
+        .note:hover {
+            transform: rotate(0) scale(1.05);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+        }
+
+        .note h3 {
+            font-family: 'Dancing Script', cursive;
+            font-size: 1.8rem;
+            margin-bottom: 10px;
+            color: #d23669;
+        }
+
+        .note p {
+            line-height: 1.6;
+        }
+
+        .countdown {
+            text-align: center;
+            padding: 40px 0;
+        }
+
+        .countdown h2 {
+            font-family: 'Dancing Script', cursive;
+            font-size: 3rem;
+            margin-bottom: 30px;
+            color: #d23669;
+        }
+
+        .timer {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+        }
+
+        .timer-item {
+            background-color: white;
+            padding: 20px;
+            border-radius: 10px;
+            min-width: 100px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .timer-number {
+            font-size: 2.5rem;
+            font-weight: bold;
+            color: #d23669;
+        }
+
+        .timer-label {
+            font-size: 1rem;
+            color: #666;
+        }
+
+        footer {
+            text-align: center;
+            padding: 40px 0;
+            background-color: rgba(255, 255, 255, 0.3);
+            margin-top: 40px;
+        }
+
+        footer p {
+            font-size: 1.2rem;
+            margin-bottom: 20px;
+        }
+
+        .heart-btn {
+            background: none;
+            border: none;
+            font-size: 2rem;
+            cursor: pointer;
+            color: #d23669;
+            transition: transform 0.3s;
+        }
+
+        .heart-btn:hover {
+            transform: scale(1.2);
+        }
+
+        .hearts-container {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 100;
+        }
+
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.7);
+            z-index: 1000;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .modal-content {
+            background-color: white;
+            padding: 30px;
+            border-radius: 15px;
+            max-width: 600px;
+            width: 90%;
+            text-align: center;
+            position: relative;
+            animation: modalFadeIn 0.5s;
+        }
+
+        @keyframes modalFadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(-50px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .close-modal {
+            position: absolute;
+            top: 10px;
+            right: 15px;
+            font-size: 1.5rem;
+            cursor: pointer;
+            color: #666;
+        }
+
+        .music-player {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background-color: white;
+            padding: 10px;
+            border-radius: 50px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+            display: flex;
+            align-items: center;
+            z-index: 100;
+        }
+
+        .music-btn {
+            background: none;
+            border: none;
+            font-size: 1.5rem;
+            cursor: pointer;
+            color: #d23669;
+            margin: 0 10px;
+        }
+
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 2.5rem;
+            }
+            
+            .hero h2 {
+                font-size: 2rem;
+            }
+            
+            .gallery h2, .love-notes h2, .countdown h2 {
+                font-size: 2.5rem;
+            }
+            
+            .timer {
+                flex-wrap: wrap;
+            }
+            
+            .photo-grid {
+                grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="hearts-container" id="hearts-container"></div>
+    
+    <div class="container">
+        <header>
+            <h1>Happy Birthday Anjali!</h1>
+            <div class="heart" style="top: 10%; left: 15%;"></div>
+            <div class="heart" style="top: 20%; right: 10%; animation-delay: 0.5s;"></div>
+            <div class="heart" style="bottom: 15%; left: 20%; animation-delay: 1s;"></div>
+            <div class="heart" style="bottom: 25%; right: 15%; animation-delay: 1.5s;"></div>
+        </header>
+        
+        <section class="hero">
+            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQZ-41bp6SUZxwe4Npls1N9lr2qfhV9GZE_PiTQufm5lJXcDo2dv_VfVVZurhBMZlzlZ_o&usqp=CAU" alt="Anjali" id="profile-img">
+            <h2>To the most beautiful girl in my life</h2>
+            <p>On this special day, I want to celebrate you and all the joy you bring into my life. You're my sunshine, my happiness, and my greatest blessing. Wishing you the most wonderful birthday filled with love and laughter!</p>
+            <a href="#" class="btn" id="surprise-btn">Click for a Surprise!</a>
+        </section>
+        
+        <section class="gallery">
+            <h2>Our Beautiful Memories</h2>
+            <div class="photo-grid">
+                <div class="photo-item">
+                    <img src="https://i.imgur.com/xJq3WzD.jpg" alt="Memory 1">
+                </div>
+                <div class="photo-item">
+                    <img src="https://i.imgur.com/yKt3bVq.jpg" alt="Memory 2">
+                </div>
+                <div class="photo-item">
+                    <img src="https://i.imgur.com/zMp4R5X.jpg" alt="Memory 3">
+                </div>
+                <div class="photo-item">
+                    <img src="https://i.imgur.com/JqYeYnW.jpg" alt="Memory 4">
+                </div>
+                <div class="photo-item">
+                    <img src="https://i.imgur.com/xJq3WzD.jpg" alt="Memory 5">
+                </div>
+                <div class="photo-item">
+                    <img src="https://i.imgur.com/yKt3bVq.jpg" alt="Memory 6">
+                </div>
+            </div>
+        </section>
+        
+        <section class="love-notes">
+            <h2>Reasons Why I Love You</h2>
+            <div class="notes-container">
+                <div class="note">
+                    <h3>Your Smile</h3>
+                    <p>Your smile brightens even my darkest days. It's the most beautiful thing I've ever seen.</p>
+                </div>
+                <div class="note">
+                    <h3>Your Kindness</h3>
+                    <p>You have the biggest heart and always know how to make everyone around you feel special.</p>
+                </div>
+                <div class="note">
+                    <h3>Your Laugh</h3>
+                    <p>The sound of your laughter is my favorite melody. I'd do anything to hear it every day.</p>
+                </div>
+                <div class="note">
+                    <h3>Your Strength</h3>
+                    <p>You face every challenge with such grace and determination. You inspire me every day.</p>
+                </div>
+                <div class="note">
+                    <h3>Your Love</h3>
+                    <p>You love me in a way I never thought possible. I'm the luckiest person to have you.</p>
+                </div>
+                <div class="note">
+                    <h3>Your Everything</h3>
+                    <p>Every little thing about you makes my world better. I fall in love with you more each day.</p>
+                </div>
+            </div>
+        </section>
+        
+        <section class="countdown">
+            <h2>Our Next Special Date</h2>
+            <div class="timer">
+                <div class="timer-item">
+                    <div class="timer-number" id="days">00</div>
+                    <div class="timer-label">Days</div>
+                </div>
+                <div class="timer-item">
+                    <div class="timer-number" id="hours">00</div>
+                    <div class="timer-label">Hours</div>
+                </div>
+                <div class="timer-item">
+                    <div class="timer-number" id="minutes">00</div>
+                    <div class="timer-label">Minutes</div>
+                </div>
+                <div class="timer-item">
+                    <div class="timer-number" id="seconds">00</div>
+                    <div class="timer-label">Seconds</div>
+                </div>
+            </div>
+        </section>
+    </div>
+    
+    <footer>
+        <p>Anjali, you're my everything. Happy Birthday my love!</p>
+        <button class="heart-btn" id="heart-btn">❤️</button>
+    </footer>
+    
+    <div class="modal" id="birthday-modal">
+        <div class="modal-content">
+            <span class="close-modal" id="close-modal">&times;</span>
+            <h2 style="font-family: 'Dancing Script', cursive; color: #d23669; font-size: 2.5rem;">Happy Birthday Anjali!</h2>
+            <p style="margin: 20px 0; font-size: 1.2rem; line-height: 1.6;">I hope your day is as beautiful and special as you are. Thank you for being the most amazing girlfriend. I love you more than words can express!</p>
+            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQZ-41bp6SUZxwe4Npls1N9lr2qfhV9GZE_PiTQufm5lJXcDo2dv_VfVVZurhBMZlzlZ_o&usqp=CAU" alt="Anjali" style="width: 200px; height: 200px; border-radius: 50%; object-fit: cover; border: 5px solid #ff6b81; margin: 20px auto; display: block;">
+            <button class="btn" id="close-modal-btn">Close</button>
+        </div>
+    </div>
+    
+    <div class="music-player">
+        <button class="music-btn" id="play-btn">▶️</button>
+        <button class="music-btn" id="pause-btn">⏸️</button>
+    </div>
+    
+    <audio id="birthday-song" loop>
+        <source src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3" type="audio/mpeg">
+    </audio>
+    
+    <script>
+        // Floating hearts
+        function createHeart() {
+            const heart = document.createElement('div');
+            heart.classList.add('heart');
+            
+            heart.style.left = Math.random() * 100 + 'vw';
+            heart.style.top = Math.random() * 100 + 'vh';
+            heart.style.opacity = Math.random() * 0.7 + 0.3;
+            heart.style.transform = `rotate(45deg) scale(${Math.random() * 0.5 + 0.5})`;
+            heart.style.animationDuration = Math.random() * 3 + 2 + 's';
+            heart.style.animationDelay = Math.random() * 2 + 's';
+            
+            document.getElementById('hearts-container').appendChild(heart);
+            
+            setTimeout(() => {
+                heart.remove();
+            }, 5000);
+        }
+        
+        setInterval(createHeart, 300);
+        
+        // Countdown timer
+        function updateCountdown() {
+            // Set the date we're counting down to (next anniversary or special date)
+            const countdownDate = new Date();
+            countdownDate.setDate(countdownDate.getDate() + 30); // Example: 30 days from now
+            
+            const now = new Date().getTime();
+            const distance = countdownDate - now;
+            
+            const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+            const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+            const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+            
+            document.getElementById('days').textContent = days.toString().padStart(2, '0');
+            document.getElementById('hours').textContent = hours.toString().padStart(2, '0');
+            document.getElementById('minutes').textContent = minutes.toString().padStart(2, '0');
+            document.getElementById('seconds').textContent = seconds.toString().padStart(2, '0');
+        }
+        
+        setInterval(updateCountdown, 1000);
+        updateCountdown();
+        
+        // Modal functionality
+        const modal = document.getElementById('birthday-modal');
+        const surpriseBtn = document.getElementById('surprise-btn');
+        const closeModal = document.getElementById('close-modal');
+        const closeModalBtn = document.getElementById('close-modal-btn');
+        
+        surpriseBtn.addEventListener('click', (e) => {
+            e.preventDefault();
+            modal.style.display = 'flex';
+        });
+        
+        closeModal.addEventListener('click', () => {
+            modal.style.display = 'none';
+        });
+        
+        closeModalBtn.addEventListener('click', () => {
+            modal.style.display = 'none';
+        });
+        
+        window.addEventListener('click', (e) => {
+            if (e.target === modal) {
+                modal.style.display = 'none';
+            }
+        });
+        
+        // Heart button effect
+        const heartBtn = document.getElementById('heart-btn');
+        
+        heartBtn.addEventListener('click', () => {
+            for (let i = 0; i < 50; i++) {
+                createHeart();
+            }
+        });
+        
+        // Music player
+        const birthdaySong = document.getElementById('birthday-song');
+        const playBtn = document.getElementById('play-btn');
+        const pauseBtn = document.getElementById('pause-btn');
+        
+        playBtn.addEventListener('click', () => {
+            birthdaySong.play();
+        });
+        
+        pauseBtn.addEventListener('click', () => {
+            birthdaySong.pause();
+        });
+        
+        // Change profile image on click
+        const profileImg = document.getElementById('profile-img');
+        const images = [
+            'https://i.imgur.com/JqYeYnW.jpg',
+            'https://i.imgur.com/xJq3WzD.jpg',
+            'https://i.imgur.com/yKt3bVq.jpg',
+            'https://i.imgur.com/zMp4R5X.jpg'
+        ];
+        let currentImage = 0;
+        
+        profileImg.addEventListener('click', () => {
+            currentImage = (currentImage + 1) % images.length;
+            profileImg.src = images[currentImage];
+        });
+    </script>
+</body>
+</html>
